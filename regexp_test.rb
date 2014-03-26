@@ -3,7 +3,7 @@
 
 require 'minitest/autorun'
 require 'minitest/unit'
-require './regexp.rb'
+require_relative 'regexp.rb'
 
 Minitest.autorun
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # -*- encoding: utf-8 -*-
 
-require './fa.rb'
-require './parse.rb'
+require_relative 'fa.rb'
+require_relative 'parse.rb'
 require 'set'
 
 class MyRegexp

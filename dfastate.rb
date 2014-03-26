@@ -6,7 +6,6 @@ class DFAState
     attr_accessor :count
   end
   @count = 0
-  #@function = nil
 
   def initialize(name = 'dummy')
     @name = name
