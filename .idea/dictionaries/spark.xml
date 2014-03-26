@@ -1,14 +1,24 @@
 <component name="ProjectDictionaryState">
   <dictionary name="spark">
     <words>
+      <w>abca</w>
       <w>acceptings</w>
+      <w>acceptiongs</w>
+      <w>automata</w>
       <w>autorun</w>
       <w>dfastate</w>
+      <w>gnfa</w>
       <w>graphviz</w>
+      <w>kleene</w>
+      <w>lparen</w>
       <w>minitest</w>
       <w>nfas</w>
       <w>nfastate</w>
       <w>parslet</w>
+      <w>powerbar</w>
+      <w>rparen</w>
+      <w>transf</w>
+      <w>yardoc</w>
     </words>
   </dictionary>
 </component>
