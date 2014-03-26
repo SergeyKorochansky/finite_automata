@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 # -*- encoding: utf-8 -*-
-
+require 'minitest/autorun'
 require 'minitest/unit'
 require './fa.rb'
 
-MiniTest::Unit.autorun
+Minitest.autorun
 
-class TestFa < MiniTest::Unit::TestCase
+class TestFa < Minitest::Test
 
   def test_dfa
     r = DFAState.new('r')
@@ -15,7 +15,7 @@ class TestFa < MiniTest::Unit::TestCase
     r.function = {'0' => r, '1' => s}
     s.function = {'0' => s, '1' => r}
 
-    dfa = DFA.new([r, s], ['0', '1'], r, [s])
+    dfa = DFA.new([r, s], %w(0 1), r, [s])
 
     assert_same true,  dfa.process('1011')
     assert_same false,  dfa.process('110')
@@ -32,7 +32,7 @@ class TestFa < MiniTest::Unit::TestCase
     s.function = {'1' => [s], SYMBOL_E => [t]}
     t.function = {'2' => [t], SYMBOL_E => [t]}
 
-    nfa = NFA.new([r, s, t], ['0', '1', '2'], r, [t])
+    nfa = NFA.new([r, s, t], %w(0 1 2), r, [t])
 
     assert_equal [r, s, t], nfa.get_epsilon_closure([r])
     assert_equal [s, t],    nfa.get_epsilon_closure([s])

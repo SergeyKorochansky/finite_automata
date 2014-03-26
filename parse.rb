@@ -33,9 +33,9 @@ class Value < Struct.new(:value)
       s.function[value.to_s] ||= []
       s.function[value.to_s] << f
       symbols << value.to_s
-      return [s, f, states, symbols]
+      [s, f, states, symbols]
     else
-      return value.convert(s, f, states, symbols)
+      value.convert(s, f, states, symbols)
     end
   end
 end

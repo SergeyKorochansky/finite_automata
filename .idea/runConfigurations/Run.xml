@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Unnamed" type="RubyRunConfigurationType" factoryName="Ruby">
+  <configuration default="false" name="Run" type="RubyRunConfigurationType" factoryName="Ruby">
     <module name="finite_automata" />
     <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
     <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />

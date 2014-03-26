@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 # -*- encoding: utf-8 -*-
 
+require 'minitest/autorun'
 require 'minitest/unit'
 require './regexp.rb'
 
-MiniTest::Unit.autorun
+Minitest.autorun
 
-class TestFa < MiniTest::Unit::TestCase
+class TestFa < Minitest::Test
 
   def test_regexp_001
     r = MyRegexp.new('a')

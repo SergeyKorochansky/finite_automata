@@ -4,9 +4,9 @@ require 'set'
 require 'graphviz'
 
 
-class FA
-
-end
+#class FA
+#
+#end
 
 class DFA
 
@@ -24,11 +24,7 @@ class DFA
       return false unless s
     }
 
-    if @acceptings.include? s
-      return true
-    else
-      return false
-    end
+    @acceptings.include? s
   end
 
   def to_graph(options = {})
@@ -53,11 +49,7 @@ class DFA
       }
     }
 
-    if !options.empty?
-      return g.output(options)
-    else
-      return g.output( :dot => String )
-    end
+    options.empty? ? g.output(:dot => String) : g.output(options)
 
   end
 end
@@ -66,12 +58,16 @@ class DFAState
   attr_accessor :function
   attr_accessor :number
   attr_reader   :name
-  @@number = 0
+  class << self
+    attr_accessor :count
+  end
+  @count = 0
+  #@function = nil
 
   def initialize(name = 'dummy')
     @name = name
-    @@number = @@number + 1
-    @number = @@number
+    self.class.count += 1
+    @number = self.class.count
   end
 
   def to_s
@@ -105,11 +101,11 @@ class NFA
     result = SortedSet.new(states)
     states = states.to_a
 
-    while !states.empty?
+    until states.empty?
       s = states.shift
       if s.has_move?(SYMBOL_E)
         s.function[SYMBOL_E].each { |t|
-          if !result.include? t
+          unless result.include? t
             result << t
             states << t
           end
@@ -137,7 +133,7 @@ class NFA
 
     unprocessed_nfa_states = [nfas_initial]
 
-    while !unprocessed_nfa_states.empty?
+    until unprocessed_nfa_states.empty?
       nfas = unprocessed_nfa_states.shift
       dfa = dfa_states[nfas]
 
@@ -151,7 +147,7 @@ class NFA
           end
         }
         movable_states = get_epsilon_closure(movable_states)
-        if !dfa_states.key?(movable_states)
+        unless dfa_states.key?(movable_states)
           dfa_states[movable_states] = DFAState.new(movable_states.to_a.to_s)
           unprocessed_nfa_states << movable_states
         end
@@ -186,11 +182,7 @@ class NFA
       }
     }
 
-    if !options.empty?
-      return g.output(options)
-    else
-      return g.output( :dot => String )
-    end
+    options.empty? ? g.output(:dot => String) : g.output(options)
 
   end
 
