@@ -3,9 +3,11 @@
     <words>
       <w>acceptings</w>
       <w>autorun</w>
+      <w>dfastate</w>
       <w>graphviz</w>
       <w>minitest</w>
       <w>nfas</w>
+      <w>nfastate</w>
       <w>parslet</w>
     </words>
   </dictionary>
